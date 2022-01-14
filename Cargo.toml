@@ -1,5 +1,5 @@
 [package]
-name = "fledfe-os"
+name = "fledge-os"
 version = "0.1.0"
 edition = "2021"
 

@@ -2,16 +2,13 @@
 #![no_main]
 #![feature(core_intrinsics)]
 
-use core::arch::asm;
 use core::intrinsics;
 use core::panic::PanicInfo;
 
 #[panic_handler]
 #[no_mangle]
 pub fn panic(_info: &PanicInfo) -> ! {
-    unsafe {
-        intrinsics::abort();
-    }
+    intrinsics::abort();
 }
 
 #[no_mangle]

@@ -10,6 +10,6 @@
     "linker-flavor": "ld.lld",
     "executables": true,
     "features": "-mmx,-sse,+soft-float",
-    "distable-redzone": true,
+    "disable-redzone": true,
     "panic-strategy": "abort"
 }

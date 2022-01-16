@@ -4,6 +4,7 @@
 
 use core::intrinsics;
 use core::panic::PanicInfo;
+use x86_64::instructions::hlt;
 
 struct VGACell {
     is_blinking: u1,
@@ -49,5 +50,7 @@ pub extern "C" fn _start() -> ! {
         framebuffer.offset(1).write_volatile(0x30); // *(framebuffer + 1) = 0x30;
     }
 
-    loop {}
+    loop {
+        hlt();
+    }
 }

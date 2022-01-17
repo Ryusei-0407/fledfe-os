@@ -48,6 +48,9 @@ jobs:
           command: clippy
           args: --all-features
 
+      - name: Run check
+        run: cargo check --verbose
+
       - name: Build
         run: cargo build --verbose
 

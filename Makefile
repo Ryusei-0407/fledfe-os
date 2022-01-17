@@ -1,6 +1,3 @@
-all:
-	bootimage run --target=fledge.json
-
 run:
 	cargo +nightly run
 

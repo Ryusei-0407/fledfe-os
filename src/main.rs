@@ -4,20 +4,25 @@
 
 use core::intrinsics;
 use core::panic::PanicInfo;
+use x86_64::instructions::{hlt};
 
 #[panic_handler]
 #[no_mangle]
 pub fn panic(_info: &PanicInfo) -> ! {
-    intrinsics::abort();
+    unsafe {
+        intrinsics::abort();
+    }
 }
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    let framebuffer = 0xb8000 as *mut u8;
+    let mut framebuffer = 0xb8000 as *mut u8;
 
     unsafe {
-        framebuffer.offset(1).write_volatile(0x30);
+        framebuffer.offset(1).write_volatile(0x30); // *(framebuffer + 1) = 0x30;
     }
 
-    loop {}
+    loop {
+        hlt();
+    }
 }

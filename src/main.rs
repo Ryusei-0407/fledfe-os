@@ -99,5 +99,18 @@ pub extern "C" fn eh_personality() {}
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    panic!("help!!");
+    let text = b"Hello, World";
+
+    let mut cursor = Cursor {
+        position: 0,
+        foreground: Color::White,
+        background: Color::Black,
+    };
+    cursor.print(text);
+
+    loop {
+        hlt();
+    }
+
+    // panic!("help!!");
 }

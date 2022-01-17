@@ -1,6 +1,7 @@
 #![no_std]
 #![no_main]
 #![feature(core_intrinsics)]
+#![feature(lang_items)]
 
 use core::intrinsics;
 use core::panic::PanicInfo;
@@ -13,6 +14,10 @@ pub fn panic(_info: &PanicInfo) -> ! {
         intrinsics::abort();
     }
 }
+
+#[lang = "eh_personality"]
+#[no_mangle]
+pub extern "C" fn eh_personality() {}
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {

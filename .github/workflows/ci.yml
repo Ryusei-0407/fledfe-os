@@ -21,7 +21,7 @@ jobs:
           profile: minimal
           toolchain: ${{ matrix.rust }}
           override: true
-          components: rustfmt, clippy
+          components: rustfmt, clippy, rust-src, llvm-tools-preview
 
       - name: Cache
         uses: actions/cache@v2

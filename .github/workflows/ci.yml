@@ -46,7 +46,7 @@ jobs:
         continue-on-error: true
         with:
           command: clippy
-          args: -- -D warnings
+          args: --all-features
 
       - name: Run tests
         run: cargo test --verbose
